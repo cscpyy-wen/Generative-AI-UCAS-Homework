@@ -1,0 +1,90 @@
+{
+  "scope": "Independent CPU evaluation of the released F0.2 weights; synthetic training/resume checks and recorded figure recreation.",
+  "source_commit": "7db54505aa7d086423d00f8467fed6bed3e4e351",
+  "source_repository": "https://github.com/cscpyy-wen/Generative-AI-UCAS-Homework",
+  "software": {
+    "python": "3.9.23",
+    "packages": {
+      "certifi": "2026.7.22",
+      "charset-normalizer": "3.5.2",
+      "contourpy": "1.3.0",
+      "cycler": "0.12.1",
+      "fonttools": "4.60.2",
+      "idna": "3.20",
+      "importlib_resources": "6.5.2",
+      "kiwisolver": "1.4.7",
+      "lxml": "6.1.3",
+      "matplotlib": "3.9.4",
+      "numpy": "1.23.5",
+      "packaging": "26.3",
+      "pillow": "11.3.0",
+      "pyparsing": "3.3.3",
+      "pypdf": "6.19.0",
+      "python-dateutil": "2.9.0.post0",
+      "python-docx": "1.2.0",
+      "requests": "2.32.5",
+      "six": "1.17.0",
+      "torch": "1.12.1+cpu",
+      "torchvision": "0.13.1+cpu",
+      "typing_extensions": "4.16.0",
+      "urllib3": "2.6.3",
+      "zipp": "3.23.1"
+    },
+    "cuda_runtime": null,
+    "device": "cpu",
+    "threads": 4,
+    "system_site_packages": false
+  },
+  "checks": {
+    "anonymous_github_clone": true,
+    "published_reference_files_and_checkpoints": 73,
+    "tensor_only_checkpoints": 7,
+    "pip_check": "passed",
+    "synthetic_smoke": "passed",
+    "unittest": {
+      "ran": 3,
+      "passed": 3
+    },
+    "recorded_figure_recreation": "passed",
+    "privacy_check_after_local_outputs": "passed"
+  },
+  "dataset": {
+    "name": "MNIST",
+    "binarization": "uint8 >= 128",
+    "split_seed": 20260920,
+    "train": 55000,
+    "validation": 5000,
+    "test": 10000,
+    "fresh_download": true,
+    "official_archive_md5": {
+      "train-images-idx3-ubyte.gz": "f68b3c2dcbeaaa9fbdd348bbdeb94873",
+      "train-labels-idx1-ubyte.gz": "d53e105ee54ea40749a09fcbcd1e9432",
+      "t10k-images-idx3-ubyte.gz": "9fb629c4189551a2d022fa330f9573f3",
+      "t10k-labels-idx1-ubyte.gz": "ec29112dd5afa0611ce80d1b7f02629c"
+    }
+  },
+  "checkpoint": {
+    "file": "checkpoints/f02.pt",
+    "sha256": "2601e4b5954dd9f00631f7f9c132d500cab835419f00a76f9569acc72cb666a9"
+  },
+  "evaluation": {
+    "split": "test",
+    "metrics": {
+      "n": 10000,
+      "nll_nats_per_image": 54.60234968509674,
+      "bce_nats_per_pixel": 0.06964585419017441,
+      "bits_per_pixel": 0.10047772845864046,
+      "standard_error": 0.15481044375842237
+    },
+    "baselines": {
+      "fair_bernoulli_nll": 543.4273895589971,
+      "independent_bernoulli_nll": 205.84517581481933,
+      "independent_standard_error": 0.4542238190542832
+    }
+  },
+  "recorded_test_nll": 54.60235017147064,
+  "absolute_nll_difference": 4.863738993776678e-07,
+  "match_tolerance": 0.0001,
+  "passed": true,
+  "evaluation_command": "python -m ucas_generative_ai evaluate --checkpoint checkpoints/f02.pt --experiment f02 --split test --data-root data --device cpu --threads 4 --baselines --output reproduced/f02-test.json"
+}

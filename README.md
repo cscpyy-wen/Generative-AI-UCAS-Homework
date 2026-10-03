@@ -27,6 +27,11 @@ python -m pip install -r requirements-cpu.txt
 python -m pip install -e .
 ```
 
+`requirements-cpu-lock.txt` records all runtime package versions from the
+independent Python 3.9 CPU replay, including the optional report inspection
+tools. Use it instead of `requirements-cpu.txt` to match that complete
+environment.
+
 For the recorded Linux training environment with a compatible NVIDIA GPU and driver:
 
 ```bash
@@ -77,6 +82,14 @@ python -m ucas_generative_ai evaluate \
   --output reproduced/f02-test.json
 ```
 
+An independent CPU replay used an anonymous clone, a new Python 3.9 environment
+without system packages, and a fresh official MNIST download. The released
+F0.2 checkpoint scored **54.6023497** on all 10,000 test images, within
+**0.0000005** of the recorded result. Model, sampler, resume and dependency
+checks also passed, and the recorded figures were rebuilt. The machine-readable
+[verification record](docs/reproduction-check.json) gives the evaluated source
+commit, checkpoint hash, environment and full metrics.
+
 Generate a new complete batch from an empty canvas:
 
 ```bash
@@ -125,7 +138,7 @@ python -m ucas_generative_ai train \
 
 S0, S1, S2, S3 and G are separate training runs. F0/F0.2 use the best G checkpoint produced in that run, with separately numbered continuation epochs. A fresh run may select a different G epoch because floating-point kernels and hardware can change the learned trajectory. The historical epoch-9 checkpoint remains available as `checkpoints/g.pt`.
 
-Reissuing the same command restores complete saved training states. To start another independent experiment, use another `--output` directory. `--no-resume` refuses existing training states; it does not delete them. Hyperparameters are defined in `configs/` and `src/ucas_generative_ai/config.py`, and configuration changes are checked before resuming.
+Reissuing the same command restores complete saved training states. To start another independent experiment, use another `--output` directory. `--no-resume` refuses existing training states; it does not delete them. Recorded hyperparameters are archived in `configs/`. Fresh training uses `experiment_config()` in `src/ucas_generative_ai/config.py`, and configuration changes are checked before resuming.
 
 Train one configuration, or repeat the continuation directly from the released historical G checkpoint:
 
