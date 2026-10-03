@@ -1,0 +1,7 @@
+# Notebook execution packages verified in the historical Python 3.9 environment.
+-r requirements.txt
+nbformat==5.10.4
+nbclient==0.10.2
+ipykernel==6.31.0
+ipython==8.18.1
+ipywidgets==8.1.9

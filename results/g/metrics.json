@@ -1,0 +1,34 @@
+{
+  "train": {
+    "n": 55000,
+    "nll_nats_per_image": 53.53005372326591,
+    "bce_nats_per_pixel": 0.06827812974906367,
+    "bits_per_pixel": 0.09850451919014734,
+    "standard_error": 0.061084665871276075
+  },
+  "validation": {
+    "n": 5000,
+    "nll_nats_per_image": 55.181467429351805,
+    "bce_nats_per_pixel": 0.07038452478233649,
+    "bits_per_pixel": 0.1015434048588032,
+    "standard_error": 0.2185621533113472
+  },
+  "test": {
+    "n": 10000,
+    "nll_nats_per_image": 55.3111172955513,
+    "bce_nats_per_pixel": 0.07054989450963176,
+    "bits_per_pixel": 0.10178198294428525,
+    "standard_error": 0.15310979708723754
+  },
+  "best_epoch": 9,
+  "best_val_nll": 55.181467429351805,
+  "initial_validation": {
+    "n": 5000,
+    "nll_nats_per_image": 536.2796650878906,
+    "bce_nats_per_pixel": 0.684030185061085,
+    "bits_per_pixel": 0.9868469558059872,
+    "standard_error": 0.03822230761171731
+  },
+  "training_seconds": 10695.277567664161,
+  "parameter_count": 1462145
+}

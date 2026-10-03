@@ -1,0 +1,6 @@
+# Historical Linux/CUDA 10.2 reference environment; Python 3.9.23.
+# Requires a compatible NVIDIA driver and GPU.
+--extra-index-url https://download.pytorch.org/whl/cu102
+-r requirements.txt
+torch==1.12.1+cu102
+torchvision==0.13.1+cu102

@@ -1,0 +1,18 @@
+{
+  "seed": 20260920,
+  "sample_seed": 20260921,
+  "split_seed": 20260920,
+  "channels": 64,
+  "n_blocks": 12,
+  "batch_size": 256,
+  "epochs": 25,
+  "lr": 0.001,
+  "min_lr": 0.0001,
+  "grad_clip": 1.0,
+  "threshold": 128,
+  "n_train": 55000,
+  "n_val": 5000,
+  "n_test": 10000,
+  "n_samples": 64,
+  "experiment": "s0"
+}

@@ -1,0 +1,43 @@
+{
+  "train": {
+    "n": 55000,
+    "nll_nats_per_image": 61.70724901350195,
+    "bce_nats_per_pixel": 0.078708225782528,
+    "bits_per_pixel": 0.113551967013622,
+    "standard_error": 0.06712889246056088
+  },
+  "validation": {
+    "n": 5000,
+    "nll_nats_per_image": 62.165187788009646,
+    "bce_nats_per_pixel": 0.0792923313622572,
+    "bits_per_pixel": 0.1143946532368529,
+    "standard_error": 0.22947775979172724
+  },
+  "test": {
+    "n": 10000,
+    "nll_nats_per_image": 62.18889252195358,
+    "bce_nats_per_pixel": 0.07932256699228774,
+    "bits_per_pixel": 0.1144382740303561,
+    "standard_error": 0.15971160627868908
+  },
+  "baselines": {
+    "fair_bernoulli_nll": 543.4273895589971,
+    "independent_bernoulli_nll": 205.84517581481933,
+    "independent_standard_error": 0.4542238190542832
+  },
+  "best_epoch": 25,
+  "best_val_nll": 62.165187788009646,
+  "initial_validation": {
+    "n": 5000,
+    "nll_nats_per_image": 668.5071743408203,
+    "bce_nats_per_pixel": 0.8526877223734952,
+    "bits_per_pixel": 1.230168348495147,
+    "standard_error": 0.17726810749307306
+  },
+  "training_seconds": 795.3127121478319,
+  "parameter_count": 452225,
+  "test_95pct_mean_interval": [
+    61.875857773647354,
+    62.50192727025981
+  ]
+}

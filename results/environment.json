@@ -1,0 +1,9 @@
+{
+  "python": "3.9.23",
+  "torch": "1.12.1+cu102",
+  "torchvision": "0.13.1+cu102",
+  "numpy": "1.23.5",
+  "matplotlib": "3.9.4",
+  "cuda": "10.2",
+  "gpu": "NVIDIA TITAN RTX"
+}

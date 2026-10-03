@@ -1,0 +1,94 @@
+{
+  "experiments": [
+    {
+      "experiment": "s0",
+      "completed_epochs": 25,
+      "best_epoch": 25,
+      "weight_source": "raw",
+      "validation_nll": 62.165187788009646,
+      "test_nll": 62.18889252195358,
+      "config": "configs/s0.json",
+      "checkpoint": "checkpoints/s0.pt"
+    },
+    {
+      "experiment": "s1",
+      "completed_epochs": 100,
+      "best_epoch": 68,
+      "weight_source": "raw",
+      "validation_nll": 60.57585177135468,
+      "test_nll": null,
+      "config": "configs/s1.json",
+      "checkpoint": "checkpoints/s1.pt"
+    },
+    {
+      "experiment": "s2",
+      "completed_epochs": 100,
+      "best_epoch": 47,
+      "weight_source": "raw",
+      "validation_nll": 60.46418600654602,
+      "test_nll": 60.4826806675911,
+      "config": "configs/s2.json",
+      "checkpoint": "checkpoints/s2.pt"
+    },
+    {
+      "experiment": "s3",
+      "completed_epochs": 100,
+      "best_epoch": 45,
+      "weight_source": "raw",
+      "validation_nll": 60.55347481307983,
+      "test_nll": null,
+      "config": "configs/s3.json",
+      "checkpoint": "checkpoints/s3.pt"
+    },
+    {
+      "experiment": "g",
+      "completed_epochs": 100,
+      "best_epoch": 9,
+      "weight_source": "raw",
+      "validation_nll": 55.181467429351805,
+      "test_nll": 55.3111172955513,
+      "config": "configs/g.json",
+      "checkpoint": "checkpoints/g.pt"
+    },
+    {
+      "experiment": "f0",
+      "completed_epochs": 8,
+      "best_epoch": 3,
+      "weight_source": "ema",
+      "validation_nll": 54.56228734645843,
+      "test_nll": 54.69443715276718,
+      "config": "configs/f0.json",
+      "checkpoint": "checkpoints/f0.pt"
+    },
+    {
+      "experiment": "f02",
+      "completed_epochs": 9,
+      "best_epoch": 4,
+      "weight_source": "ema",
+      "validation_nll": 54.484065021133425,
+      "test_nll": 54.60235017147064,
+      "config": "configs/f02.json",
+      "checkpoint": "checkpoints/f02.pt"
+    }
+  ],
+  "total_distinct_training_epochs": 442,
+  "selected": "f02",
+  "units": "nats/image",
+  "dataset": "static-binarized MNIST, uint8 >= 128",
+  "split": {
+    "train": 55000,
+    "validation": 5000,
+    "test": 10000
+  },
+  "seed": 20260920,
+  "sample_seed": 20260921,
+  "baselines": {
+    "fair_bernoulli_nll": 543.4273895589971,
+    "independent_bernoulli_nll": 205.84517581481933,
+    "independent_standard_error": 0.4542238190542832
+  },
+  "protocol": "Validation-based selection with test evaluation after each stage; single training seed.",
+  "config_provenance": {
+    "s1": "Reconstructed from executed candidate settings; other configs are saved experiment records."
+  }
+}

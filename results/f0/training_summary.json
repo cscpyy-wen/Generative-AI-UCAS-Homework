@@ -1,0 +1,23 @@
+{
+  "best_epoch": 3,
+  "best_source": "ema",
+  "best_val_nll": 54.56228734645843,
+  "initial_validation": {
+    "n": 5000,
+    "nll_nats_per_image": 55.181467429351805,
+    "bce_nats_per_pixel": 0.07038452478233649,
+    "bits_per_pixel": 0.1015434048588032,
+    "standard_error": 0.2185621533113472
+  },
+  "completed_epochs": 8,
+  "max_epochs": 20,
+  "finished": true,
+  "stop_reason": "early_stop",
+  "training_seconds": 914.3530855411664,
+  "ema_decay": 0.999,
+  "dropout_p": 0.0,
+  "parameter_count": 1462145,
+  "successful_steps": 3440,
+  "attempted_steps": 3440,
+  "successful_step_fraction": 1.0
+}

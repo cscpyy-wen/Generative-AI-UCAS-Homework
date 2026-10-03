@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ucas-generative-ai-homework"
+version = "1.0.0"
+description = "Binary autoregressive modeling and reproducible PixelCNN experiments on MNIST"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+  "torch>=1.12,<3",
+  "torchvision>=0.13,<1",
+  "numpy>=1.23,<2",
+  "matplotlib>=3.6,<4",
+]
+
+[project.optional-dependencies]
+notebook = ["nbformat>=5", "nbclient>=0.7", "ipykernel>=6"]
+
+[project.scripts]
+ucas-homework = "ucas_generative_ai.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

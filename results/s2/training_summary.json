@@ -1,0 +1,13 @@
+{
+  "best_epoch": 47,
+  "best_val_nll": 60.46418600654602,
+  "initial_validation": {
+    "n": 5000,
+    "nll_nats_per_image": 668.5071743164062,
+    "bce_nats_per_pixel": 0.8526877223423549,
+    "bits_per_pixel": 1.2301683484502208,
+    "standard_error": 0.17726810761218403
+  },
+  "training_seconds": 6141.62527545169,
+  "parameter_count": 452225
+}

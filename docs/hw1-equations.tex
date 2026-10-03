@@ -1,0 +1,59 @@
+\[
+x_i\in\{0,1\}
+\]
+
+\[
+x_{<i}=(x_1,\ldots,x_{i-1})
+\]
+
+\[
+\pi_i=p_\theta(X_i=1\mid x_{<i})
+\]
+
+\[
+p_\theta(X_i=x_i\mid x_{<i})=\pi_i^{x_i}(1-\pi_i)^{1-x_i}
+\]
+
+\[
+\operatorname{NLL}(x)=-\ln p_\theta(x)=-\ln\prod_{i=1}^{T}{\pi_i^{x_i}(1-\pi_i)^{1-x_i}}
+\]
+
+\[
+=-\sum_{i=1}^{T}{[x_i\ln\pi_i+(1-x_i)\ln(1-\pi_i)]}
+\]
+
+\[
+y_i=x_i
+\]
+
+\[
+\operatorname{NLL}(x)=\operatorname{CrossEntropy}(\pi,x)
+\]
+
+\[
+\widetilde W=W\odot M,\qquad \frac{\partial L}{\partial W}=\frac{\partial L}{\partial\widetilde W}\odot M
+\]
+
+\[
+g(a,b)=\tanh(a)\odot\sigma(b),\qquad h_{\ell+1}=h_\ell+P_\ell g(a_\ell,b_\ell)
+\]
+
+\[
+C
+\]
+
+\[
+h_c
+\]
+
+\[
+\mu=\frac{1}{C}\sum_{c=1}^{C}{h_c},\quad v=\frac{1}{C}\sum_{c=1}^{C}{(h_c-\mu)^2},\quad \widehat h_c=\gamma_c\frac{h_c-\mu}{\sqrt{v+\varepsilon}}+\beta_c
+\]
+
+\[
+x_i\sim\operatorname{Bernoulli}(\pi_i),\qquad \pi_i=\sigma(z_i(x_{1:i-1}))
+\]
+
+\[
+\widehat\pi_{r,c}=\frac{1+\sum_{n=1}^{N}{x_{n,r,c}}}{N+2}
+\]

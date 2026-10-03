@@ -1,0 +1,8 @@
+{
+  "n_samples": 64,
+  "seed": 20260921,
+  "temperature": 1.0,
+  "seconds": 44.832547664642334,
+  "generated_foreground_fraction": 0.14150191843509674,
+  "test_foreground_fraction": 0.13422946631908417
+}

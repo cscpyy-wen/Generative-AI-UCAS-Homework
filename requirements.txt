@@ -1,0 +1,5 @@
+# Python dependencies verified in the historical Python 3.9.23 environment.
+# Select a PyTorch/torchvision wheel using requirements-cpu.txt or
+# requirements-historical.txt before installing the editable project.
+numpy==1.23.5
+matplotlib==3.9.4
