@@ -58,6 +58,9 @@ bash scripts/check_project.sh
 
 `ci/reproducibility.yml` is a GitHub Actions template for the same checks.
 It is provided as a template; no hosted workflow is active in this release.
+The local check excludes downloaded data and documented runtime-output
+directories. A public-export audit should use `scripts/audit_privacy.py`
+without `--exclude-generated` so that unexpected files are checked.
 
 Rebuild the historical curves and all seven complete 64-image batches from the published arrays:
 

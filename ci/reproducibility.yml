@@ -30,7 +30,7 @@ jobs:
       - name: Validate published reference data
         run: python scripts/verify_reference.py
       - name: Check privacy and checkpoint structure
-        run: python scripts/audit_privacy.py . --trust-local-weights --expect-checkpoints 7
+        run: python scripts/audit_privacy.py . --trust-local-weights --expect-checkpoints 7 --exclude-generated
       - name: Test model, sampler, and exact resume behavior
         run: python -m unittest discover -s tests -v
       - name: Recreate recorded plots

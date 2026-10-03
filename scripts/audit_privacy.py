@@ -72,9 +72,11 @@ def placeholder(value: str) -> bool:
 
 
 class Audit:
-    def __init__(self, root: Path, policy: dict, trust_weights: bool):
+    def __init__(self, root: Path, policy: dict, trust_weights: bool,
+                 exclude_generated: bool = False):
         self.root = root
         self.trust_weights = trust_weights
+        self.exclude_generated = exclude_generated
         self.findings: set[tuple[str, str]] = set()
         self.files_checked = 0
         self.weights_checked: list[dict] = []
@@ -325,8 +327,17 @@ class Audit:
                 self.add(name, "json_parse_failed")
 
     def run(self) -> None:
+        generated_dirs = set()
+        if self.exclude_generated:
+            for child in self.root.iterdir():
+                if (child.is_dir() and not child.is_symlink()
+                        and (child.name in {"data", "runs", "samples", "reproduced"}
+                             or child.name.startswith("runs-"))):
+                    generated_dirs.add(child.name)
         for path in sorted(self.root.rglob("*")):
             relative = path.relative_to(self.root)
+            if relative.parts[0] in generated_dirs:
+                continue
             if any(part in SKIP_DIRS for part in relative.parts):
                 continue
             name = relative.as_posix()
@@ -348,6 +359,8 @@ def main() -> int:
     parser.add_argument("--trust-local-weights", action="store_true",
                         help="Allow old PyTorch loading of your own trusted local tensor exports")
     parser.add_argument("--expect-checkpoints", type=int, default=0)
+    parser.add_argument("--exclude-generated", action="store_true",
+                        help="Skip only root data/, runs/, runs-*/, samples/, reproduced/ directories for local checks")
     parser.add_argument("--json", action="store_true", help="Write a redacted JSON result to stdout")
     args = parser.parse_args()
     root = args.root.resolve()
@@ -362,7 +375,7 @@ def main() -> int:
             policy = json.loads(private_path.read_text(encoding="utf-8"))
         except Exception:
             parser.error("Unable to read the private JSON policy")
-    audit = Audit(root, policy, args.trust_local_weights)
+    audit = Audit(root, policy, args.trust_local_weights, args.exclude_generated)
     audit.run()
     if args.expect_checkpoints and len(audit.weights_checked) != args.expect_checkpoints:
         audit.add("checkpoints/", "unexpected_checkpoint_count")

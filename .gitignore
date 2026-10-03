@@ -10,6 +10,7 @@ __pycache__/
 .env.*
 /data/
 /runs/
+/runs-*/
 /samples/
 /reproduced/
 *.log
